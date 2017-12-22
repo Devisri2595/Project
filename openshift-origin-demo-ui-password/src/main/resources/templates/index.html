@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Spring Security OAuth</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+</head>
+<body ng-app="myApp" ng-controller="mainCtrl">
+
+<div th:include="header"></div>
+
+<div class="container">
+<h1 class="col-sm-12">Order Details</h1>
+<!-- <div class="col-sm-12">
+	<label class="col-sm-3">ID</label>
+	<span>{{foo.id}}</span>
+</div>
+
+<div class="col-sm-12">
+<label class="col-sm-3">Name</label>
+<span>{{foo.name}}</span>
+</div> -->
+
+<div class="col-sm-12">
+<a class="btn btn-primary" href="#" ng-click="getOrders()">Get Order List</a>
+<a class="btn btn-primary" href="#" ng-click="getProdcts()">Get Products List</a>
+<div>
+
+ <table border="1">
+    <tr>
+        <th ng-repeat="column in cols">{{column}}</th>
+    </tr>
+    <tr ng-repeat="row in rows">
+      <td ng-repeat="column in cols">{{row[column]}}</td>
+    </tr>
+  </table>
+   
+
+  <!--  <table border="1" bgcolor="green">
+   <thead>
+     <tr>
+       <td>Order Id</td>
+       <td>Name</td>
+       <td>Number Shipped</td>
+       <td>Order Date</td>
+    </tr>
+    </thead>
+  <tbody>
+  
+    <tr ng-repeat="odr in orders">
+       <td>{{odr.id}}</td>
+       <td>{{odr.first}}{{odr.last}}{{odr.middle}}</td>
+       <td>{{odr.numberShipped}}</td>
+       <td>{{odr.orderDate}}</td>
+    </tr>
+  </tbody>
+</table>  -->
+   
+</div>
+</div>
+
+<div class="col-sm-12">
+<br/>
+<br/>
+<a class="btn btn-info" href="#" ng-click="refreshAccessToken()">Refresh Access Token</a>
+<br/>
+<br/>
+<a class="btn btn-danger" href="#" ng-click="logout()" ng-if="isLoggedIn">Logout</a>
+</div>
+</div>
+</body>
+</html>

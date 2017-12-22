@@ -1,0 +1,16 @@
+server:
+    port: 8084
+zuul:
+  routes:
+    oauth:
+      path: /oauth/**
+      url: http://localhost:8081/openshift-origin-demo-oauth-server/oauth
+    resource: 
+      path: /resource/** 
+      url: http://localhost:8082/openshift-origin-demo-resource
+      
+  Servlet30WrapperFilter:
+    pre:
+      disable:true
+      
+   
