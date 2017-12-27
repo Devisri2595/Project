@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ui
+  namespace: hondajava
+spec:
+  minReadySeconds: 30
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ui
+    spec:
+      containers:
+      - name: ui
+        image: hondaregistry.azurecr.io/ui
+        env:
+        - name: AUTHOR
+          value: kumaran
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: hondasecret
